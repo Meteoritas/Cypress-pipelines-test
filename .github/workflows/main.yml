@@ -25,11 +25,6 @@ jobs:
       - name: Install dependencies
         run: npm install
 
-      - name: Start the application
-        run: npm run dev &
-        env:
-          CI: true
-
       - name: Run Cypress tests with Chrome
         run: npx cypress run --browser chrome
         env:
