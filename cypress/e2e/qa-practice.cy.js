@@ -26,18 +26,6 @@ describe("Front-end testing in webpage https://qa-practice.netlify.app/products_
   it("should add a product to the cart and update the total", () => {
     // Add the first product to the cart and verify it appears in the cart with the correct price
     cy.get(".shop-item").first().find(".shop-item-button").click();
-    
-    let itemText; // Declare the variable to store the text
- 
-    // Get the text and store it in the variable
-    cy.get('.shop-item').first().find('.shop-item-price').invoke('text').then((text) => {
-        itemText = text; // Store the text in the variable
-    });
-     
-    // Later on, you can use the variable in your assertions
-    cy.get('.shop-item').first().find('.shop-item-price').invoke('text').then((text) => {
-        expect(text).to.equal(itemText); // Example of using the stored value for assertion
-    });
     cy.get(".cart-items")
       .find(".cart-row")
       .should("have.length", 1)
